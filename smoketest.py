@@ -12,10 +12,10 @@ newPlateAssertions_test = TestLoader().loadTestsFromTestCase(NewPlateAssertions)
 smoke_test = TestSuite([ordersAssertions_test, menuAssertions_test, newPlateAssertions_test])
 
 kwargs = {
-    "output": "reports/smoke-report",
-    "report_name": "smoke-report",
+    "output": "reports",
+    "report_name": "final-report",
     "combine_reports": True,
-    "add_timestamp": True
+    "add_timestamp": False
 }
 
 runner = HTMLTestRunner(**kwargs)
