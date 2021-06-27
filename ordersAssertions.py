@@ -12,8 +12,8 @@ class OrderAssertions(unittest.TestCase):
 		driver.maximize_window()
 		driver.get("http://localhost:3000/")
 
-	def test_page_title(self):
-		self.assertTrue(self.is_element_present(By.XPATH, '//*[@id="root"]/div/main/h6'))
+	def test_order_list(self):
+	    self.assertGreaterEqual(len(self.driver.find_elements_by_class('order')), 1)
 
 	def tearDown(self):
 		self.driver.quit()
