@@ -18,23 +18,33 @@ class NewPlateAssertions(unittest.TestCase):
 
 	def test_create_new_plate(self):
 		driver = self.driver
-		self.fillNewPlateForm()
+		self.fillNewPlateForm(newPlateExamples[0])
+		self.assertNotEqual(driver.current_url, "http://localhost:3000/menu")
+			
+	def test_create_new_plate2(self):
+		driver = self.driver
+		self.fillNewPlateForm(newPlateExamples[1])
+		self.assertNotEqual(driver.current_url, "http://localhost:3000/menu")
+	
+	def test_create_new_plate3(self):
+		driver = self.driver
+		self.fillNewPlateForm(newPlateExamples[2])
 		self.assertNotEqual(driver.current_url, "http://localhost:3000/menu")
 
-	def fillNewPlateForm(self):
+	def fillNewPlateForm(self, data):
 		driver = self.driver
 		nameField = driver.find_element_by_id('name')
-		nameTarget = newPlateExamples[0]['productName']
+		nameTarget = data['productName']
 		nameField.send_keys(nameTarget)
 
 		priceField = driver.find_element_by_id('price')
-		priceTarget = newPlateExamples[0]['price']
+		priceTarget = data['price']
 		priceField.send_keys(priceTarget)
 		
 		descriptionField = driver.find_element_by_id('description')
-		descriptionTarget = newPlateExamples[0]['description']
+		descriptionTarget = data['description']
 		descriptionField.send_keys(descriptionTarget)
-		
+	
 		submitButton = driver.find_element_by_id("add-new-plate")
 		submitButton.click()
 
