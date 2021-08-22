@@ -136,7 +136,6 @@ class createPlate(unittest.TestCase):
     def tearDownClass(cls):
         cls.driver.close()
         cls.driver.quit()
-        print("Test completed")
 
 
 if __name__ == '__main__':
